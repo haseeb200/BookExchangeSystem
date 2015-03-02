@@ -1,0 +1,24 @@
+﻿#topbar
+{
+    background-color: #6E6E6E;
+    border: 1px solid black;
+    padding: 2px;
+    position: absolute;
+    visibility: hidden;
+    width: 620px;
+    z-index: 100;
+    display: none;
+}
+
+#topbar a, #topbar a:link, #topbar a:visited
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+#topbar a:hover, #topbar a:focus, #topbar a:active
+{
+    color: #FDCB0B;
+    outline: medium none;
+}

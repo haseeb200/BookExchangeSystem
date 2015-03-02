@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="BookExchange.master.cs"
+    Inherits="WebPanel_MasterPage_BookExchange" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/LoginBox.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/json2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.jscroll.min.js" type="text/javascript"></script>
+    <script src="../ContentPagesScript/topbar.js" type="text/javascript"></script>
+    <link href="../css/topbar.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .recentcomments a
+        {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <style type="text/css" id="custom-background-css">
+        body.custom-background
+        {
+            background-image: url('../images/BG.jpg');
+            background-repeat: repeat-x;
+            background-position: top center;
+            background-attachment: fixed;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="home blog custom-background">
+    <div id="topbar" style="visibility: visible; left: 175px; top: 5px;">
+        <a href="">
+            <img class="cross" src="./../images/cross.gif">
+        </a><b><a href="../Account/Login.aspx" title="Join Us" target="_blank">Dear Guest, please click here to login/register to gain full access</a>
+        </b>
+    </div>
+    <form runat="server">
+    <div id="wrapper">
+        <!-- wrapper begin -->
+        <div id="masthead">
+            <!-- masthead begin -->
+            <div id="top" class="clearfix">
+                <div class="blogname">
+                    <a class="logo" href="#">
+                        <img src="../images/logo.png" alt="Valor" /></a>
+                    <h2>
+                        Your Online Book Exchange
+                    </h2>
+                </div>
+                <div id="profile_info">
+                    <img src="../images/avatar.jpg" id="avatar" alt="avatar" />
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            <div>
+                                <p style="margin-top: 5px">
+                                    Welcome <strong>Guest</strong>. <a href="../Account/Login.aspx">Login</a></p>
+                                <p style="margin-top: 5px">
+                                    New User. <a href="../Account/Register.aspx">Signup</a></p>
+                            </div>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <div>
+                                <p style="margin-top: 5px">
+                                    Welcome <strong>
+                                        <asp:LoginName ID="LoginName1" runat="server" />
+                                    </strong>.
+                                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                                        LogoutPageUrl="../Account/Login.aspx" />
+                                </p>
+                                <p style="margin-top: 5px">
+                                    <a href="../ContentPages/MyAccount.aspx">My Account</a></p>
+                                <p class="last_login">
+                                    Last login:
+                                    <asp:Label ID="LastLoginDateLabel" runat="server"></asp:Label></p>
+                            </div>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+                <%--<div id="search">
+                    <form role="search" method="get" id="searchform">
+                    <div>
+                        <input type="text" value="" name="s" id="s" />
+                        <input type="submit" id="searchsubmit" value="Search" />
+                    </div>
+                    </form>
+
+                </div>--%>
+                <div class='clear'>
+                </div>
+            </div>
+            <div id="botmenu">
+                <div id="subnav" class="menu-valormenu-container">
+                    <ul id="menu-valormenu" class="sfmenu">
+                        <li id="menu-item-76" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-76">
+                            <a href="../ContentPages/Home.aspx">Home</a></li>
+                        <li id="Li2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">
+                            <a href="../ContentPages/Search.aspx">Search</a></li>
+                        <li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74">
+                            <a href="../ContentPages/BooksLibrary.aspx">Browse Library</a></li>
+                        <li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">
+                            <a href="../ContentPages/SellBook.aspx">Sell Books</a></li>
+                        <%-- <li id="menu-item-77" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77">
+                            <a href="SamplePage.htm">Sample Page</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
+                                    <a href="SubPage.htm">Subpage</a></li>
+                            </ul>
+                        </li>--%>
+                        <li id="menu-item-73" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-73">
+                            <a href="../ContentPages/SiteGuide.aspx">How it Work?</a></li>
+                        <li id="Li1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-73">
+                            <a href="../ContentPages/ContactUs.aspx">Contact Us</a></li>
+                        <li id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105">
+                            <a href="../ContentPages/AboutUs.aspx">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end masthead-->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="bottom">
+            <ul>
+                <li class="botwid widget_text">
+                    <h3 class="bothead">
+                        About Us</h3>
+                    <div class="textwidget">
+                        <p>
+                            Exchange books to save money and Planet. Why pay full prices for a college/school
+                            textbook you'll only use for one year or part of year or semester? You can save
+                            money (typically 40 - 80% off the new price) and trees by opting to exchange textbooks.
+                        </p>
+                    </div>
+                </li>
+                <li class="botwid widget_links">
+                    <h3 class="bothead">
+                        Contents</h3>
+                    <ul class='xoxo blogroll'>
+                        <li><a href="../ContentPages/Home.aspx">Home</a></li>
+                        <li><a href="../ContentPages/BooksLibrary.aspx">Browse Library</a></li>
+                        <li><a href="../ContentPages/SellBook.aspx">Sell Book</a></li>
+                        <li><a href="../ContentPages/ContactUs.aspx">Contact Us</a></li>
+                        <li><a href="../ContentPages/SiteGuide.aspx">How it Works?</a></li>
+                    </ul>
+                </li>
+                <li class="botwid widget_meta">
+                    <h3 class="bothead">
+                        Become a Member</h3>
+                    <ul>
+                        <li><a href="../Account/Register.aspx">Sign Up </a></li>
+                        <li><a href="../Account/Login.aspx">Log in</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class='clear'>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="fcred">
+                Copyright &copy; 2012 - <a href="../ContentPages/Home.aspx">Online Book Exchange</a>
+                <br />
+            </div>
+            <div class='clear'>
+            </div>
+        </div>
+        <div class='clear'>
+        </div>
+    </div>
+    <input id="userLabel" type="hidden" runat="server" />
+    </form>
+</body>
+</html>

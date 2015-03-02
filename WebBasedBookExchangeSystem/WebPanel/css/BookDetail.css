@@ -1,0 +1,83 @@
+﻿
+/*.space
+{
+    padding-top: 15px;
+    padding-left: 10px;
+    color: Olive;
+}
+
+.detailspace
+{
+    padding-bottom: 5px;
+}
+.space
+{
+    padding-top: 15px;
+    padding-left: 10px;
+    color: Olive;
+}
+
+.detailspace
+{
+    padding-bottom: 5px;
+}*/
+
+
+.detailspace
+{
+    padding-top: 15px;
+}
+
+.AddList
+{
+    padding-left: 20px;
+}
+.author
+{
+    color: #827839;
+}
+.commentbox
+{
+    padding-top: 60px;
+}
+.UserCommnets
+{
+    background-color: #F5F5F5;
+    height: 50px;
+    width: 685px;
+    padding-top: 5px;
+    padding-left: 8px;
+    color: #A67100;
+    font-weight: 700;
+   
+}
+
+.loadingframe
+{
+    height: 500px;
+}
+.style1
+{
+    width: 240px;
+    padding-bottom: 5px;
+}
+
+.style2
+{
+    width: 85px;
+    padding-left:190px;
+}
+.style3
+{
+    width: 101px;
+}
+.image
+{
+    padding-left: 315px;
+    padding-top: 200px;
+    width: 70px;
+}
+label.error
+{
+    color: red;
+}

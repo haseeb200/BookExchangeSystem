@@ -1,0 +1,20 @@
+﻿<li class="reviewbox"><span class="categ"><a href="../ContentPages/BooksLibrary.aspx?cid=${Category_Id}"
+    rel="tag">${CategoryName}</a> </span>
+    <h2>
+        <a href="../ContentPages/Home.aspx?id=${Book_Id}" rel="bookmark" title="Permanent Link to ${Title}">
+            ${Title}</a></h2>
+    <span class="ReviewsDate">Posted by <a href="../ContentPages/BooksLibrary.aspx?uid=${User_Id}">
+        ${UserName}</a> | ${DateTime} </span>
+    <br />
+    <br />
+    <div class="bentry">
+        <a href="../ContentPages/Home.aspx?id=${Book_Id}">
+            <img width="120" height="120" src="../../BookImages/${BookImageName}" class="s-image wp-post-image" />
+        </a>
+        <p>
+            ${Comment}
+        </p>
+        <div class='clear'>
+        </div>
+    </div>
+</li>

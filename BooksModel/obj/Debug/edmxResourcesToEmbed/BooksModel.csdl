@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BooksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="BooksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BookCategories" EntityType="BooksModel.BookCategory" />
+    <EntitySet Name="BookRatings" EntityType="BooksModel.BookRating" />
+    <EntitySet Name="BookReviews" EntityType="BooksModel.BookReview" />
+    <EntitySet Name="Books" EntityType="BooksModel.Book" />
+    <EntitySet Name="BookSwaps" EntityType="BooksModel.BookSwap" />
+    <EntitySet Name="ContactUsForms" EntityType="BooksModel.ContactUsForm" />
+    <EntitySet Name="sysdiagrams" EntityType="BooksModel.sysdiagram" />
+    <EntitySet Name="UserProfiles" EntityType="BooksModel.UserProfile" />
+    <EntitySet Name="WishLists" EntityType="BooksModel.WishList" />
+    <AssociationSet Name="FK_Books_BookCategory" Association="BooksModel.FK_Books_BookCategory">
+      <End Role="BookCategory" EntitySet="BookCategories" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookRating_Books" Association="BooksModel.FK_BookRating_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="BookRating" EntitySet="BookRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookRating_UserProfile" Association="BooksModel.FK_BookRating_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="BookRating" EntitySet="BookRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookReviews_Books" Association="BooksModel.FK_BookReviews_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="BookReviews" EntitySet="BookReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookReviews_UserProfile" Association="BooksModel.FK_BookReviews_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="BookReviews" EntitySet="BookReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_UserProfile" Association="BooksModel.FK_Books_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WishList_Books" Association="BooksModel.FK_WishList_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="WishList" EntitySet="WishLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WishList_UserProfile" Association="BooksModel.FK_WishList_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="WishList" EntitySet="WishLists" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BookCategory">
+    <Key>
+      <PropertyRef Name="Category_Id" />
+    </Key>
+    <Property Name="Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Books" Relationship="BooksModel.FK_Books_BookCategory" FromRole="BookCategory" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="BookRating">
+    <Key>
+      <PropertyRef Name="Rating_Id" />
+    </Key>
+    <Property Name="Rating_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Book_Id" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="BooksModel.FK_BookRating_Books" FromRole="BookRating" ToRole="Books" />
+    <NavigationProperty Name="UserProfile" Relationship="BooksModel.FK_BookRating_UserProfile" FromRole="BookRating" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="BookReview">
+    <Key>
+      <PropertyRef Name="Review_Id" />
+    </Key>
+    <Property Name="Review_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="Book_Id" Type="Int32" Nullable="false" />
+    <Property Name="Reviews" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="BooksModel.FK_BookReviews_Books" FromRole="BookReviews" ToRole="Books" />
+    <NavigationProperty Name="UserProfile" Relationship="BooksModel.FK_BookReviews_UserProfile" FromRole="BookReviews" ToRole="UserProfile" />
+    <Property Type="Boolean" Name="Status" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Book_Id" />
+    </Key>
+    <Property Name="Book_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Category_Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ISBN" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Edition" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Condition" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Publisher" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="BookImageName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="BookCategory" Relationship="BooksModel.FK_Books_BookCategory" FromRole="Books" ToRole="BookCategory" />
+    <NavigationProperty Name="BookRatings" Relationship="BooksModel.FK_BookRating_Books" FromRole="Books" ToRole="BookRating" />
+    <NavigationProperty Name="BookReviews" Relationship="BooksModel.FK_BookReviews_Books" FromRole="Books" ToRole="BookReviews" />
+    <NavigationProperty Name="UserProfile" Relationship="BooksModel.FK_Books_UserProfile" FromRole="Books" ToRole="UserProfile" />
+    <NavigationProperty Name="WishLists" Relationship="BooksModel.FK_WishList_Books" FromRole="Books" ToRole="WishList" />
+    <Property Type="DateTime" Name="DateTime" />
+  </EntityType>
+  <EntityType Name="BookSwap">
+    <Key>
+      <PropertyRef Name="Swap_Id" />
+    </Key>
+    <Property Name="Swap_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Book_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactUsForm">
+    <Key>
+      <PropertyRef Name="Contact_Id" />
+    </Key>
+    <Property Name="Contact_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CellPhone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="BookRatings" Relationship="BooksModel.FK_BookRating_UserProfile" FromRole="UserProfile" ToRole="BookRating" />
+    <NavigationProperty Name="BookReviews" Relationship="BooksModel.FK_BookReviews_UserProfile" FromRole="UserProfile" ToRole="BookReviews" />
+    <NavigationProperty Name="Books" Relationship="BooksModel.FK_Books_UserProfile" FromRole="UserProfile" ToRole="Books" />
+    <NavigationProperty Name="WishLists" Relationship="BooksModel.FK_WishList_UserProfile" FromRole="UserProfile" ToRole="WishList" />
+    <Property Type="DateTime" Name="RegistrationDate" />
+    <Property Type="String" Name="Guid" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WishList">
+    <Key>
+      <PropertyRef Name="WishList_Id" />
+    </Key>
+    <Property Name="WishList_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Book_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Book" Relationship="BooksModel.FK_WishList_Books" FromRole="WishList" ToRole="Books" />
+    <NavigationProperty Name="UserProfile" Relationship="BooksModel.FK_WishList_UserProfile" FromRole="WishList" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_Books_BookCategory">
+    <End Role="BookCategory" Type="BooksModel.BookCategory" Multiplicity="1" />
+    <End Role="Books" Type="BooksModel.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookCategory">
+        <PropertyRef Name="Category_Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookRating_Books">
+    <End Role="Books" Type="BooksModel.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BookRating" Type="BooksModel.BookRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="BookRating">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookRating_UserProfile">
+    <End Role="UserProfile" Type="BooksModel.UserProfile" Multiplicity="1" />
+    <End Role="BookRating" Type="BooksModel.BookRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="BookRating">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookReviews_Books">
+    <End Role="Books" Type="BooksModel.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BookReviews" Type="BooksModel.BookReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="BookReviews">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookReviews_UserProfile">
+    <End Role="UserProfile" Type="BooksModel.UserProfile" Multiplicity="0..1" />
+    <End Role="BookReviews" Type="BooksModel.BookReview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="BookReviews">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_UserProfile">
+    <End Role="UserProfile" Type="BooksModel.UserProfile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Books" Type="BooksModel.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WishList_Books">
+    <End Role="Books" Type="BooksModel.Book" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="WishList" Type="BooksModel.WishList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Book_Id" />
+      </Principal>
+      <Dependent Role="WishList">
+        <PropertyRef Name="Book_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WishList_UserProfile">
+    <End Role="UserProfile" Type="BooksModel.UserProfile" Multiplicity="1" />
+    <End Role="WishList" Type="BooksModel.WishList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="WishList">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

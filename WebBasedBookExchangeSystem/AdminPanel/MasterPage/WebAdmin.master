@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="WebAdmin.master.cs" Inherits="AdminPanel_MasterPage_WebAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/smoothness/jquery-ui-1.7.1.custom.css" rel="stylesheet" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+    <div class="container" id="container">
+        
+        <div id="header">
+            
+            <div id="profile_info">
+                <form runat="server">
+                <%--<img src="../img/avatar.jpg" id="avatar" alt="avatar" />
+                <p>
+                    Welcome <strong>admin</strong>. <a href="#">Log out?</a></p>
+                <p>
+                    System messages: 3. <a href="#">Read?</a></p>
+                <p class="last_login">
+                    Last login: 21:03 12.05.2009</p>--%>
+
+                <img src="../img/avatar.jpg" id="avatar" alt="avatar" />
+                <p>
+                    Welcome <strong>
+                        <asp:LoginName ID="HeadLoginName" runat="server" />
+                    </strong>.
+                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="../../WebPanel/Account/Login.aspx"
+                        LogoutText="Log Out" />
+                </p>
+                <p>
+                    User Status. <strong>Online</strong>
+                </p>
+                <p class="last_login">
+                    Last login:
+                    <asp:Label ID="LastLoginDateLabel" runat="server"></asp:Label></p>
+                </form>
+            </div>
+            <div id="logo">
+                <h1>
+                    <a href="/">AdmintTheme</a></h1>
+            </div>
+        </div>
+      
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+       
+        <!-- end #content -->
+        <div id="footer" class="clearfix">
+            <p class="left">
+                Copyright © 2012,</p>
+            <p class="right">
+             Online Book Exchange Admin Panel  </p>
+        </div>
+        <!-- end #footer -->
+    </div>
+    
+    <!-- end container -->
+</body>
+</html>

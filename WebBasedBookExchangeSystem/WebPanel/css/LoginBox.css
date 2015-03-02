@@ -1,0 +1,40 @@
+/*..................Log Area.................................................*/
+
+#profile_info
+{
+    /*background: url("../images/loginbox.jpg") no-repeat scroll center top transparent;*/
+    background: black;
+    color: #FFFFFF;
+    float: right;
+    font-size: 12px;
+    height: 59px;
+    line-height: 10px;
+    margin-top: 33px;
+    padding: 4px;
+    width: 231px;
+}
+#profile_info p
+{
+    background: none repeat scroll 0 0 transparent;
+     font-size: 11px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+#profile_info p.last_login
+{
+    color: #DFDFDF;
+    font-size: 10px;
+    padding-top: 5px;
+}
+
+
+#avatar
+{
+    float: left;
+    margin: 0px 10px;
+}
+
+#profile_info p a {
+    color: #F9D71C;
+    font-size: 11px;
+}

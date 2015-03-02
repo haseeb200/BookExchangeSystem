@@ -1,0 +1,30 @@
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\bin\Debug\BooksModel.dll.config
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\bin\Debug\BooksModel.dll
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\bin\Debug\BooksModel.pdb
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\obj\Debug\BooksModel.dll
+C:\Users\Ammar\Documents\Visual Studio 2010\Projects\BookExchange\BooksModel\obj\Debug\BooksModel.pdb
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll.config
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.pdb
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.dll
+C:\Users\Ammar\documents\visual studio 2010\Projects\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.pdb
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll.config
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.pdb
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.dll
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.pdb
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll.config
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.pdb
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.csprojResolveAssemblyReference.cache
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.dll
+D:\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.pdb
+D:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.csprojResolveAssemblyReference.cache
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll.config
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.dll
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\bin\Debug\BooksModel.pdb
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.csprojResolveAssemblyReference.cache
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.dll
+E:\University Work\Final Year Project\Project\BookExchangeSystemSolution\BooksModel\obj\Debug\BooksModel.pdb
